@@ -26,7 +26,7 @@ app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/xwww-form-urlencoded
 // for parsing multipart/form-data
 // app.use(upload.array()); 
-app.use(express.static(path.join(__dirname, './client/ecommerce-app/build')));
+app.use(express.static(path.join(__dirname, './client/build')));
 
 //routes
 app.use("/api/v1/auth", require("./routes/userRoutes"));
@@ -36,7 +36,7 @@ app.use("/api/v1/product", require("./routes/productRoutes"));
 
 //rest api
 app.use("*", (req, res) => {
-    res.sendFile(path.join(__dirname, './client/ecommerce-app/build/index.html'));
+    res.sendFile(path.join(__dirname, './client/build/index.html'));
 })
 
 connectDb().then(()=>{
