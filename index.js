@@ -35,7 +35,7 @@ app.use("/api/v1/product", require("./routes/productRoutes"));
 
 
 //rest api
-app.use("*", (res, req) => {
+app.use("*", (req, res) => {
     res.sendFile(path.join(__dirname, './client/build/index.html'));
 })
 
